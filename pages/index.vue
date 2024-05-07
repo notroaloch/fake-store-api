@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-[calc(100vh-80px)] flex-col gap-3">
     <CategoryTabs @change="onCategoryChange" />
-    <div v-if="!isLoading">
+    <div v-if="!isLoading" class="space-y-3">
       <ProductCard
         v-for="product in products"
         :key="product.id"
