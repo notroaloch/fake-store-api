@@ -1,5 +1,11 @@
 <template>
-  <UTabs v-model="selected" :items="items" @change="onChange" />
+  <UTabs v-model="selected" :items="items" @change="onChange">
+    <template #default="{ item, selected }">
+      <p class="line-clamp-2 capitalize" :class="{ 'text-primary': selected }">
+        {{ item.label }}
+      </p>
+    </template>
+  </UTabs>
 </template>
 
 <script setup lang="ts">
@@ -13,7 +19,9 @@
   const items = computed(() => {
     return [
       { label: 'all' },
-      categories.value.map((category) => ({ label: category })),
+      categories.value.map((category) => ({
+        label: category,
+      })),
     ].flat();
   });
 
