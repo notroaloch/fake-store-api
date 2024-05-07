@@ -8,5 +8,15 @@ export const useProduct = () => {
     return data;
   };
 
-  return { categories, products, getCategories };
+  const getProducts = async (category: undefined | string) => {
+    const data: Product[] = await $fetch('/api/products', {
+      query: {
+        category,
+      },
+    });
+    products.value = data;
+    return data;
+  };
+
+  return { categories, products, getCategories, getProducts };
 };
