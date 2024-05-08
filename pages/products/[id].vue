@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-[calc(100vh-80px)] flex-col">
     <div class="my-4">
-      <ULink @click="$router.back()">< Volver</ULink>
+      <ULink @click="$router.back()">< GO BACK</ULink>
     </div>
     <div class="grid flex-1 grid-cols-2">
       <div
@@ -33,7 +33,9 @@
           {{ product.description }}
         </h2>
         <p class="text-lg tracking-tight">${{ product.price }} USD</p>
-        <UButton :ui="{ rounded: 'rounded-full' }" block>ADD TO CART</UButton>
+        <UButton :ui="{ rounded: 'rounded-full' }" block @click="handleClick"
+          >ADD TO BAG</UButton
+        >
       </div>
     </div>
   </div>
@@ -42,9 +44,15 @@
 <script setup lang="ts">
   const route = useRoute();
   const { getProductByID } = useProduct();
+  const { addToBag } = useShoppingBag();
+
   const product: Ref<Product> = useState('product');
 
   product.value = await getProductByID(route.params.id as string);
+
+  const handleClick = () => {
+    addToBag(product.value);
+  };
 </script>
 
 <style scoped></style>

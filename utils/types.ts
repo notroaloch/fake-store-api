@@ -10,3 +10,9 @@ interface Product {
     count: number;
   };
 }
+
+interface ShoppingBagItem {
+  id: number;
+  data: Product;
+  qty: number;
+}

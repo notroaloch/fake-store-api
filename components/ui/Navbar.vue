@@ -3,14 +3,8 @@
     <h1 class="text-primary flex-1 text-xl font-bold">TheFakeStore API</h1>
     <div class="flex items-center gap-6">
       <UInput color="gray" variant="outline" placeholder="Search..." />
-      <UButton
-        icon="i-heroicons-shopping-bag"
-        size="xl"
-        color="primary"
-        square
-        variant="ghost"
-      />
     </div>
+    <ShoppingBagPopover />
   </div>
 </template>
 

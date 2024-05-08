@@ -23,5 +23,11 @@ export const useProduct = () => {
     return data;
   };
 
-  return { categories, products, getCategories, getProducts, getProductByID };
+  return {
+    categories,
+    products,
+    getCategories,
+    getProducts,
+    getProductByID,
+  };
 };
