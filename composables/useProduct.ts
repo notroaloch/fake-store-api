@@ -18,5 +18,10 @@ export const useProduct = () => {
     return data;
   };
 
-  return { categories, products, getCategories, getProducts };
+  const getProductByID = async (id: string) => {
+    const data: Product = await $fetch(`/api/products/${id}`);
+    return data;
+  };
+
+  return { categories, products, getCategories, getProducts, getProductByID };
 };
